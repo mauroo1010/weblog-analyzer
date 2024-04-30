@@ -72,7 +72,7 @@ public class LogAnalyzer
     public int quietesHour(){
         int i = 0;
         int horaMenosOcupada = 0;
-        int logMin = 0;
+        int logMin = hourCounts[0];
         while (i < hourCounts.length) {
             if (logMin > hourCounts[i]) {
                 logMin = hourCounts[i];
