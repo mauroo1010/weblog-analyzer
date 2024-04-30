@@ -23,6 +23,7 @@ public class LogAnalyzer
         // Create the reader to obtain the data.
         reader = new LogfileReader();
     }
+
     public LogAnalyzer(String fileName)
     { 
         // Create the array object to hold the hourly
@@ -42,6 +43,44 @@ public class LogAnalyzer
             int hour = entry.getHour();
             hourCounts[hour]++;
         }
+    }
+
+    public int numberOfAccesses() {
+        int i = 0;
+        int numberOfAccesses = 0;
+        while (i < hourCounts.length) {
+            numberOfAccesses += hourCounts[i]; 
+            i++;
+        }
+        return numberOfAccesses;
+    }
+
+    public int busiestHour() {
+        int i = 0;
+        int horaMasOcupada = 0;
+        int logMax = 0;
+        while (i < hourCounts.length) {
+            if (logMax < hourCounts[i]) { 
+                logMax = hourCounts[i];
+                horaMasOcupada = i;
+            }
+            i++;
+        }
+        return horaMasOcupada;
+        }
+
+    public int quietesHour(){
+        int i = 0;
+        int horaMenosOcupada = 0;
+        int logMin = 0;
+        while (i < hourCounts.length) {
+            if (logMin > hourCounts[i]) {
+                logMin = hourCounts[i];
+                horaMenosOcupada = i;
+            }
+            i++;
+        }
+        return horaMenosOcupada;
     }
 
     /**
