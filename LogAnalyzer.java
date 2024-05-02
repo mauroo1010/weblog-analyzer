@@ -67,7 +67,7 @@ public class LogAnalyzer
             i++;
         }
         return horaMasOcupada;
-        }
+    }
 
     public int quietesHour(){
         int i = 0;
@@ -81,6 +81,21 @@ public class LogAnalyzer
             i++;
         }
         return horaMenosOcupada;
+    }
+
+    public int busiestHourPeriod() {
+        int i = 0;
+        int periodoMasOcupado = 0;
+        int logMax = 0;
+        while (i < hourCounts.length - 1)  {
+            int logParejaActual = hourCounts[i] + hourCounts[i + 1];
+            if (logParejaActual > logMax) {
+                logMax = logParejaActual;
+                periodoMasOcupado = i;
+            }
+            i++;
+        }
+        return periodoMasOcupado;
     }
 
     /**
