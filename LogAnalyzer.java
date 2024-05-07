@@ -1,4 +1,4 @@
-/**
+    /**
  * Read web server data and analyse
  * hourly access patterns.
  * 
@@ -24,7 +24,7 @@ public class LogAnalyzer
         // Create the reader to obtain the data.
         reader = new LogfileReader();
 
-        dayCounts = new int [31];
+        dayCounts = new int [32];
     }
 
     public LogAnalyzer(String fileName)
@@ -35,7 +35,7 @@ public class LogAnalyzer
         // Create the reader to obtain the data.
         reader = new LogfileReader(fileName);
 
-        dayCounts= new int [31];
+        dayCounts= new int [32];
     }
 
     /**
