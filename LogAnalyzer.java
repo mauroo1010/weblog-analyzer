@@ -153,7 +153,7 @@ public class LogAnalyzer
     }
 
     public void printDailyCounts() {
-        int day = 0;
+        int day = 1;
         System.out.println("Day: Count");
         while (day < dayCounts.length){
             System.out.println(day + ": " + dayCounts[day]);
