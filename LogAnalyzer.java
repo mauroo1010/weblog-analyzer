@@ -1,4 +1,4 @@
-    /**
+/**
  * Read web server data and analyse
  * hourly access patterns.
  * 
@@ -49,6 +49,7 @@ public class LogAnalyzer
             hourCounts[hour]++;
         }
     }
+
     public void analyzeDailyData() {
         while (reader.hasNext()) {
             LogEntry entry = reader.next();
@@ -127,6 +128,28 @@ public class LogAnalyzer
             i++;
         }
         return periodoMasOcupado;
+    }
+
+    public void busiestDays(){
+        int i = 1;
+        int diaMasOcupado = 0;
+        int diaMenosOcupado = 0;
+        int dayMin = 99999999;
+        int dayMax = 0;
+        while (i < dayCounts.length) {
+            if (dayCounts[i] < dayMin) {
+                dayMin = dayCounts[i];
+                diaMenosOcupado = i;
+            }
+            if (dayCounts[i] > dayMax) {
+                dayMax = dayCounts[i];
+                diaMasOcupado = i;
+            }
+            i++;
+        }
+        System.out.println("El día con mas accesos fue: " + diaMasOcupado + " con " + dayMax + " accesos totales");
+        System.out.println("El día con menos accesos fue: " + diaMenosOcupado + " con " + dayMin + " accesos totales");
+
     }
 
     /**
